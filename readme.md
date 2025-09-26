@@ -1,7 +1,9 @@
 # rib-validator-dz
 
-[![npm version](https://badge.fury.io/js/rib-validator-dz.svg)](https://badge.fury.io/js/rib-validator-dz)
+[![npm version](https://img.shields.io/npm/v/rib-validator-dz.svg)](https://www.npmjs.com/package/rib-validator-dz)
+[![npm downloads](https://img.shields.io/npm/dm/rib-validator-dz.svg)](https://www.npmjs.com/package/rib-validator-dz)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Validateur de RIB (Relevé d'Identité Bancaire) et RIP (Relevé d'Identité Postal) algérien conforme à l'[Instruction 06-2004](https://www.bank-of-algeria.dz/stoodroa/2021/03/instruction062004.pdf) de la Banque d'Algérie.
 

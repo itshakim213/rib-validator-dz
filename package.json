@@ -1,7 +1,7 @@
 {
   "name": "rib-validator-dz",
   "version": "1.0.0",
-  "description": "Validate Algerian RIB (Relevé d’Identité Bancaire) according to instruction 06-2004",
+  "description": "Validate Algerian RIB / RIP according to instruction 06-2004",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "keywords": [
     "RIB",
+    "RIP",
     "Algeria",
     "bank",
     "validation",
