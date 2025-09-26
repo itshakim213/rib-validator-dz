@@ -15,7 +15,11 @@
     "validation",
     "mod97"
   ],
-  "author": "Sid Ali",
+  "author": "HxK1m",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itshakim213/rib-validator-dz.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^24.5.2",
