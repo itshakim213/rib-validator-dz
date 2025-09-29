@@ -210,6 +210,14 @@ npm run test
 - **Compatibilité ESM/CommonJS** : Support complet pour React et Node.js
 - **Tests unitaires** : Suite de tests complète avec Jest ou Vitest
 - **Génération PDF** : Fonctionnalité pour télécharger les relevés d'identité en PDF
+- **Support multi-langages** : Packages pour .NET, Python, Java, etc.
+
+### Packages disponibles
+
+- ✅ **TypeScript/JavaScript** : [npm](https://www.npmjs.com/package/rib-validator-dz)
+- 🚧 **C#/.NET** : En développement (contributions bienvenues !)
+- 📋 **Python** : Prévu
+- 📋 **Java** : Prévu
 
 ### Roadmap
 

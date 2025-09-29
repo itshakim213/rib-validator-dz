@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>RibValidatorDz</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>HxK1m</Authors>
+    <Company>rib-validator-dz</Company>
+    <Product>RIB Validator for Algeria</Product>
+    <Description>Validate Algerian RIB / RIP according to instruction 06-2004</Description>
+    <PackageProjectUrl>https://github.com/itshakim213/rib-validator-dz</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/itshakim213/rib-validator-dz</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>RIB;RIP;Algeria;bank;validation;mod97</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright 2025</Copyright>
+    <PackageReleaseNotes>Initial release of .NET package for Algerian RIB/RIP validation</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

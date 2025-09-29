@@ -1,0 +1,4 @@
+# CODEOWNERS
+# Require owner's review for .NET-related changes
+/packages/dotnet/ @itshakim213
+/.github/workflows/dotnet-ci.yml @itshakim213

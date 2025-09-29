@@ -1,0 +1,40 @@
+name: .NET CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "packages/dotnet/**"
+  push:
+    branches:
+      - dotnet
+    paths:
+      - "packages/dotnet/**"
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Restore
+        working-directory: packages/dotnet
+        run: |
+          dotnet restore RibValidatorDz/RibValidatorDz.csproj
+          dotnet restore RibValidatorDz.Tests/RibValidatorDz.Tests.csproj
+
+      - name: Build
+        working-directory: packages/dotnet
+        run: |
+          dotnet build RibValidatorDz/RibValidatorDz.csproj --configuration Release --no-restore
+          dotnet build RibValidatorDz.Tests/RibValidatorDz.Tests.csproj --configuration Release --no-restore
+
+      - name: Test
+        working-directory: packages/dotnet
+        run: dotnet test RibValidatorDz.Tests/RibValidatorDz.Tests.csproj --configuration Release --no-build --collect:"XPlat Code Coverage" --logger trx
