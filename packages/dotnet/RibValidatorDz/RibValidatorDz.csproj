@@ -15,13 +15,9 @@
     <RepositoryUrl>https://github.com/itshakim213/rib-validator-dz</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>RIB;RIP;Algeria;bank;validation;mod97</PackageTags>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Copyright>Copyright 2025</Copyright>
     <PackageReleaseNotes>Initial release of .NET package for Algerian RIB/RIP validation</PackageReleaseNotes>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
 
 </Project>
