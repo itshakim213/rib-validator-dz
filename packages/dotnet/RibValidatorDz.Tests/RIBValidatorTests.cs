@@ -11,8 +11,8 @@ public class RIBValidatorTests
     [Fact]
     public void ValidateRIB_ValidRIB_ReturnsValidResult()
     {
-        // Arrange
-        var rib = "00100234567890123456";
+        // Arrange - RIB valide avec clé de contrôle correcte
+        var rib = "00100234567890123472";
 
         // Act
         var result = RIBValidator.ValidateRIB(rib);
@@ -87,7 +87,7 @@ public class RIBValidatorTests
     public void IsValidRIB_ValidRIB_ReturnsTrue()
     {
         // Arrange
-        var rib = "00100234567890123456";
+        var rib = "00100234567890123472";
 
         // Act
         var isValid = RIBValidator.IsValidRIB(rib);
