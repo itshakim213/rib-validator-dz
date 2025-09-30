@@ -6,10 +6,12 @@ on:
     branches: [main, dev, dotnet]
     paths:
       - "dotnet-package/**"
+      - ".github/workflows/dotnet-ci.yml"
   push:
     branches: [main, dev, dotnet]
     paths:
       - "dotnet-package/**"
+      - ".github/workflows/dotnet-ci.yml"
 
 jobs:
   build-test:
