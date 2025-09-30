@@ -23,6 +23,9 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "node-package/src/**/*.ts"
+  ],
+  "exclude": [
+    "../node_modules", "dist"]
 }
