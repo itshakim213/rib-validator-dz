@@ -5,16 +5,16 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageId>DZ.AlgerianRibRipValidator</PackageId>
+        <!-- TODO Validate pacakge name-->
+        <PackageId>Hakim213DZ.AlgerianRibRipValidator</PackageId>
         <PackageVersion>0.0.1</PackageVersion>
         <Authors>Abdellah Addoun</Authors>
-        <!-- TODO Update company -->
-        <Company>DZ Softwares</Company>
+        <!-- TODO Validate company name-->
+        <Company>Hakim213 DZ Softwares</Company>
         <Product>Algerian (DZ) RIB and RIP Validator</Product>
-        <!-- TODO Add the link to repo -->
         <RepositoryUrl>https://github.com/itshakim213/rib-validator-dz</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <!-- TODO Update the copyright -->
+        <!-- TODO Validate the copyright label-->
         <Copyright>Copyright (c) itshakim213 2025</Copyright>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <Description>
