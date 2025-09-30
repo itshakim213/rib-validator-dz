@@ -44,30 +44,29 @@ jobs:
         run: |
           dotnet test Dz.RibRipValidator.Tests/Dz.RibRipValidator.Tests.csproj \
             --configuration Release --no-build \
-            /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura \
+            /p:CollectCoverage=true \
+            /p:CoverletOutput=TestResults/Coverage/coverage.cobertura.xml \
+            /p:CoverletOutputFormat=cobertura \
             --logger "trx;LogFileName=test-results.trx"
 
       - name: Enforce coverage >= 80%
         working-directory: dotnet-package
         run: |
           python3 - << 'PY'
-          import xml.etree.ElementTree as ET
-          import sys
-          path = 'Dz.RibRipValidator.Tests/TestResults/**/coverage.cobertura.xml'
-          import glob
-          files = glob.glob(path, recursive=True)
-          if not files:
+          import xml.etree.ElementTree as ET, sys
+          path = 'Dz.RibRipValidator.Tests/TestResults/Coverage/coverage.cobertura.xml'
+          try:
+            tree = ET.parse(path)
+            root = tree.getroot()
+          except Exception:
             print('Coverage report not found'); sys.exit(1)
-          tree = ET.parse(files[-1])
-          root = tree.getroot()
-          # Cobertura root may have 'line-rate' or attributes lines-valid/lines-covered
           rate = root.attrib.get('line-rate')
           if rate is not None:
             coverage = float(rate) * 100.0
           else:
-            lines_valid = float(root.attrib.get('lines-valid', 0))
-            lines_covered = float(root.attrib.get('lines-covered', 0))
-            coverage = (lines_covered / lines_valid * 100.0) if lines_valid else 0.0
+            lv = float(root.attrib.get('lines-valid', 0))
+            lc = float(root.attrib.get('lines-covered', 0))
+            coverage = (lc / lv * 100.0) if lv else 0.0
           print(f"Line coverage: {coverage:.2f}%")
           if coverage < 80.0:
             print('Coverage below threshold (80%)'); sys.exit(1)

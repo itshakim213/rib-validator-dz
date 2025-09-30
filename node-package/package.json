@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "../node_modules/.bin/tsc",
+    "build": "tsc -p tsconfig.json",
     "test": "node dist/test.js"
   },
   "keywords": [
