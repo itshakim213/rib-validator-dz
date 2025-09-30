@@ -5,6 +5,44 @@ according to instruction 06-2004 using a pre-defined list of banks.
 
 This repository contains several implementations of the same validator in different programming languages.
 
+## Structure Overview
+
+```
+rib-validator-dz/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── node-package/                             # Node.js/TypeScript implementation
+│   ├── .gitignore                            # Node package specific git ignores
+│   ├── LICENSE                               # License file for the node package
+│   ├── package.json                          # NPM package configuration
+│   ├── package-lock.json                     # NPM dependency lock file
+│   ├── readme.md                             # Node package documentation
+│   ├── tsconfig.json                          # TypeScript configuration
+│   ├── src/                                  # Source code directory
+│   │   ├── index.ts                          # Main validator implementation
+│   │   └── test.ts                           # Test implementation
+├── dotnet-package/                           # .NET/C# implementation
+│   ├── .gitignore
+│   ├── Dz.RibRipValidator.sln                # Visual Studio solution file
+│   ├── LICENSE
+│   ├── README.md
+│   ├── Dz.RibRipValidator/                   # Main .NET package
+│   │   ├── AlgerianRibValidator.cs
+│   │   ├── RibDetails.cs
+│   │   ├── Utilities.cs
+│   │   ├── Dz.RibRipValidator.csproj         # Project & Package configuration
+│   │   ├── LICENSE                           # .NET package main License file
+│   │   ├── README.md                         # .NET package main readme file
+│   └── Dz.RibRipValidator.Tests/             # .NET unit tests
+│       ├── AlgerianRibValidatorListTests.cs
+│       ├── AlgerianRibValidatorTests.cs
+│       ├── UtilitiesTests.cs
+│       ├── TestSuiteDocumentation.md         # Test documentation
+│       ├── CoverageReport.md                 # Test coverage report
+│       ├── Dz.RibRipValidator.Tests.csproj   # Test project configuration
+```
+
 ## Validation Algorithm
 
 The algorithm used complies with Instruction 06-2004 (Modulo 97 method):
@@ -43,13 +81,28 @@ The algorithm used complies with Instruction 06-2004 (Modulo 97 method):
 | 038  | ALSALAM      | Al Salam Bank Algeria                             |
 | 111  | BA           | Banque d'Algérie                                  |
 
-## Javascript/TypeScript for Nodes
+## Javascript/TypeScript for Node.js
 
 The folder `node-package` contains the complete implementation of the validator in TypeScript/JavaScript for
 Node.js environments.
 Checkout the [README.md](./node-package/readme.md) file for more details.
 
 Package is published, find it on [npm](https://www.npmjs.com/package/rib-validator-dz).
+
+### Node Package Structure
+- `src/index.ts`: Main export file containing the `validateRIB` function and bank codes
+- `src/test.ts`: Test implementation
+- `package.json`: NPM package configuration with build/test scripts
+- `tsconfig.json`: TypeScript compilation configuration
+- `dist/`: Compiled JavaScript output (generated after build)
+
+### Features
+- Validates RIB/RIP format according to Algerian banking standards
+- Checks control key using Modulo 97 algorithm
+- Supports all major Algerian banks
+- Supports both bank RIBs and postal RIPs (CCP)
+- Automatic whitespace removal
+- TypeScript type definitions included
 
 ## C# for .NET
 
@@ -58,7 +111,24 @@ Checkout the [README.md](./dotnet-package/README.md) file for more details.
 
 Package will be published soon.
 
-### Upcoming implementations
+### .NET Package Structure
+- `Dz.RibRipValidator/`: Main library project
+  - `AlgerianRibValidator.cs`: Core validation logic
+  - `RibDetails.cs`: Structure for validation results
+  - `Utilities.cs`: Supporting utility functions
+  - `Dz.RibRipValidator.csproj`: Project configuration file
+- `Dz.RibRipValidator.Tests/`: Unit tests project
+  - Comprehensive test suite for validation logic
+  - Test documentation and coverage reports
+
+### Features
+- Validates RIB/RIP format according to Algerian banking standards
+- Checks control key using Modulo 97 algorithm
+- Supports all major Algerian banks
+- Supports both bank RIBs and postal RIPs (CCP)
+- Validate single or multiple RIBs at once
+
+## Upcoming implementations
 
 - Python
 - Dart
