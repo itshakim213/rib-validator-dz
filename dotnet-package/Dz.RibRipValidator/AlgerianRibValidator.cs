@@ -60,7 +60,7 @@ public static partial class AlgerianRibValidator
             Error = isValid ? null : $"The key part is invalid - calculated key is {calculatedKey}"
         };
     }
-    
+
     /// <summary>
     /// Validates a list of Algerian RIBs (Relevé d'Identité Bancaire) or RIPs (Relevé d'Identité Postal).
     /// </summary>
@@ -72,12 +72,12 @@ public static partial class AlgerianRibValidator
     public static Dictionary<string, RibDetails> ValidateRibs(ICollection<string> ribs)
     {
         var results = new Dictionary<string, RibDetails>();
-        
+
         foreach (var rib in ribs)
         {
             results[rib] = ValidateRib(rib);
         }
-        
+
         return results;
     }
 }

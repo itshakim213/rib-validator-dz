@@ -1,0 +1,74 @@
+name: .NET CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main, dev, dotnet]
+    paths:
+      - "dotnet-package/**"
+  push:
+    branches: [main, dev, dotnet]
+    paths:
+      - "dotnet-package/**"
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore
+        working-directory: dotnet-package
+        run: dotnet restore Dz.RibRipValidator.sln
+
+      - name: Enforce formatting
+        working-directory: dotnet-package
+        run: |
+          dotnet tool install -g dotnet-format || true
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+          dotnet format --verify-no-changes
+
+      - name: Build (warnings as errors)
+        working-directory: dotnet-package
+        run: |
+          dotnet build Dz.RibRipValidator.sln --configuration Release -warnaserror --no-restore
+
+      - name: Test with coverage (Cobertura)
+        working-directory: dotnet-package
+        run: |
+          dotnet test Dz.RibRipValidator.Tests/Dz.RibRipValidator.Tests.csproj \
+            --configuration Release --no-build \
+            /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura \
+            --logger "trx;LogFileName=test-results.trx"
+
+      - name: Enforce coverage >= 80%
+        working-directory: dotnet-package
+        run: |
+          python3 - << 'PY'
+          import xml.etree.ElementTree as ET
+          import sys
+          path = 'Dz.RibRipValidator.Tests/TestResults/**/coverage.cobertura.xml'
+          import glob
+          files = glob.glob(path, recursive=True)
+          if not files:
+            print('Coverage report not found'); sys.exit(1)
+          tree = ET.parse(files[-1])
+          root = tree.getroot()
+          # Cobertura root may have 'line-rate' or attributes lines-valid/lines-covered
+          rate = root.attrib.get('line-rate')
+          if rate is not None:
+            coverage = float(rate) * 100.0
+          else:
+            lines_valid = float(root.attrib.get('lines-valid', 0))
+            lines_covered = float(root.attrib.get('lines-covered', 0))
+            coverage = (lines_covered / lines_valid * 100.0) if lines_valid else 0.0
+          print(f"Line coverage: {coverage:.2f}%")
+          if coverage < 80.0:
+            print('Coverage below threshold (80%)'); sys.exit(1)
+          PY

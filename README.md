@@ -135,3 +135,14 @@ Package will be published soon.
 - Java
 - Go
 - Kotlin
+
+## Acknowledgements
+
+Special thanks to @joeloudjinz for contributing the .NET implementation, restructuring the repository, and adding a comprehensive test suite and documentation. Your work significantly improved the project quality and developer experience.
+
+## Contributing
+
+Contributions are welcome! If you’d like to add features, improve documentation, or bring new language implementations:
+- Open an issue to discuss your proposal
+- Submit a pull request targeting the `dev` branch
+- For .NET changes, CI and CODEOWNERS will request reviews from maintainers (including @joeloudjinz)

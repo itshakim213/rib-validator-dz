@@ -24,8 +24,8 @@
     "skipLibCheck": true
   },
   "include": [
-    "node-package/src/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "../node_modules", "dist"]
+    "node_modules", "dist"]
 }

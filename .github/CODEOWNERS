@@ -1,0 +1,6 @@
+# CODEOWNERS
+# Require owner's review for Node and .NET package changes
+/node-package/ @itshakim213
+/dotnet-package/ @itshakim213 @joeloudjinz
+/.github/workflows/node-ci.yml @itshakim213
+/.github/workflows/dotnet-ci.yml @itshakim213 @joeloudjinz

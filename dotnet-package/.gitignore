@@ -11,6 +11,10 @@ Dz.RibRipValidator/bin/
 [Oo]bj/
 [Ll]og/
 
+# Examples
+examples/**/bin/
+examples/**/obj/
+
 # Visual Studio files
 *.suo
 *.user
