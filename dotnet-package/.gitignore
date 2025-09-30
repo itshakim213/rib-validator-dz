@@ -1,0 +1,134 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+Dz.RibRipValidator/bin/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio 2015/2017 cache/options
+.vs/
+*.vc.db
+*.vc.vc.opendb
+
+# Rider IDE
+.idea/
+*.sln.iml
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# TeamCity
+_TeamCity*
+
+# DotCover
+*.dotCover
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+
+# MightyMoose
+*.mm.*
+AutoTest.Net/
+
+# Web workbench (sass)
+.sass-cache/
+
+# Installshield output
+[Ee]xpress/
+[Oo]utput/
+
+# DocProject
+[Oo]ut/
+[Tt]emp/
+TestData/
+
+# ASP.NET Sitemap files
+*.sitemap
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUnit
+*.nunit
+
+# ReSharper
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# JustCode
+*.JustCode
+
+# MonoDevelop
+*.pidb
+*.userprefs
+
+# CodeRush
+.cr/
+
+# OpenCover
+*.OpenCover.xml
+
+# Azure Storage Emulator
+*.AzureStorageEmulator.db
+
+# MSBuild auto-generated files
+*.AssemblyInfo.cs
+*.BuildAppxPackageForStoreUpload.log
+
+# WebDeploy
+*.pubxml
+*.publishproj
+
+# NuGet Packages
+*.nupkg
+!*.NuSpec
+
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+!**/[Pp]ackages/repositories.config
+!**/[Pp]ackages/ServiceFabricSDK.Config.lock
+!**/[Pp]ackages/.tools/
+
+# VS Code
+.vscode/
+
+# Unity3D
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Assets/AssetStoreTools*
+
+# Gradle
+.gradle/
+
+# Mac files
+.DS_Store
+
+# Rider
+*.sln.iml
+
+*/*.db
+*/*.db-*
+
+*.db
+*.db-*
