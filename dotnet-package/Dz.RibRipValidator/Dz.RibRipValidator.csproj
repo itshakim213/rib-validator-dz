@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <!-- TODO Validate pacakge name-->
+        <PackageId>Hakim213DZ.AlgerianRibRipValidator</PackageId>
+        <PackageVersion>0.0.1</PackageVersion>
+        <Authors>Abdellah Addoun</Authors>
+        <!-- TODO Validate company name-->
+        <Company>Hakim213 DZ Softwares</Company>
+        <Product>Algerian (DZ) RIB and RIP Validator</Product>
+        <RepositoryUrl>https://github.com/itshakim213/rib-validator-dz</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <!-- TODO Validate the copyright label-->
+        <Copyright>Copyright (c) itshakim213 2025</Copyright>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <Description>
+            A Lighweight .NET package to valiadate any algerian RIB (Relevé d'Identité Bancaire) or RIP (Relevé d'Identité Postal) code according to
+            instruction 06-2004 against a pre-defined list of banks
+        </Description>
+        <PackageTags>
+            dz;algeria;RIB;RIP;Rip;Rib;bank;post;CCP;algerian;mod97
+        </PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\"/>
+        <None Include="LICENSE" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>Dz.RibRipValidator.Tests</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+</Project>
