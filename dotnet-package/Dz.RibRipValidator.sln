@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dz.RibRipValidator", "Dz.RibRipValidator\Dz.RibRipValidator.csproj", "{78F4DE74-CFFB-4D0F-8638-E35D9EC8998E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dz.RibRipValidator.Tests", "Dz.RibRipValidator.Tests\Dz.RibRipValidator.Tests.csproj", "{775361B7-F56A-4839-A05D-379DB06378D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,18 @@ Global
 		{78F4DE74-CFFB-4D0F-8638-E35D9EC8998E}.Release|x64.Build.0 = Release|Any CPU
 		{78F4DE74-CFFB-4D0F-8638-E35D9EC8998E}.Release|x86.ActiveCfg = Release|Any CPU
 		{78F4DE74-CFFB-4D0F-8638-E35D9EC8998E}.Release|x86.Build.0 = Release|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Debug|x64.Build.0 = Debug|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Debug|x86.Build.0 = Debug|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Release|x64.ActiveCfg = Release|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Release|x64.Build.0 = Release|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Release|x86.ActiveCfg = Release|Any CPU
+		{775361B7-F56A-4839-A05D-379DB06378D4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
