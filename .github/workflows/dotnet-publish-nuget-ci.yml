@@ -1,0 +1,68 @@
+# GitHub Actions workflow to publish NuGet package using trusted publishing
+name: Publish NuGet Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_tag:
+        description: 'Version tag to use for package naming'
+        required: true
+
+# Define the job that will run when the workflow is triggered  
+jobs:
+  publish-nuget:
+    # Run the job on the latest Ubuntu virtual machine
+    runs-on: ubuntu-latest
+    
+    # Set permissions required for trusted publishing
+    # id-token: write enables GitHub OIDC token issuance for trusted publishing
+    permissions:
+      id-token: write  # Enable GitHub OIDC token issuance for trusted publishing
+    
+    # Define the steps that will be executed in sequence
+    steps:
+      # Step 1: Check out the repository code from the main branch
+      - uses: actions/checkout@v4  # Get the latest code from the repository
+      
+      # Step 2: Setup .NET SDK
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4  # Install the .NET SDK
+        with:
+          dotnet-version: 8.0.x 
+      
+      # Step 3: Restore NuGet packages
+      - name: Restore dependencies
+        run: dotnet restore  # Download and restore all project dependencies
+      
+      # Step 4: Build the project in Release configuration
+      - name: Build
+        run: dotnet build ../dotnet-package/Dz.RibRipValidator/Dz.RibRipValidator.csproj --no-restore --configuration Release
+      
+      # Step 5: Create the NuGet package
+      - name: Pack NuGet package
+        run: dotnet pack ../dotnet-package/Dz.RibRipValidator/Dz.RibRipValidator.csproj --no-build --configuration Release --output ../dotnet-package/nupkg  # Package the library into a .nupkg file
+      
+      # Step 6: Extract version from input
+      - name: Extract version from input
+        id: version
+        run: |
+          # Get the version from input and remove the 'v' prefix if present
+          INPUT_VERSION="${{ inputs.version_tag }}"
+          VERSION=${INPUT_VERSION#v}
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Extracted version: ${VERSION}"
+      
+      # Step 7: Login to NuGet using trusted publishing
+      - name: NuGet login (trusted publishing)
+        uses: NuGet/login@v1  # Use the official NuGet login action for trusted publishing
+        id: login  # Set an ID so we can reference the output later
+        with:
+          user: ${{ secrets.NUGET_USERNAME }}  # NuGet.org username (stored as a GitHub secret)
+      
+      # Step 8: Publish the package to NuGet.org
+      - name: Publish to NuGet.org
+        run: |
+          # Construct the package file name using the extracted version
+          PACKAGE_PATH="../dotnet-package/nupkg/InzSoftwares.AlgerianRibRipValidator.${{ steps.version.outputs.version }}.nupkg"
+          echo "Publishing package: $PACKAGE_PATH"
+          dotnet nuget push "$PACKAGE_PATH" --api-key ${{steps.login.outputs.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
