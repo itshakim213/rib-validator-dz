@@ -5,17 +5,14 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <!-- TODO Validate pacakge name-->
-        <PackageId>Hakim213DZ.AlgerianRibRipValidator</PackageId>
+        <PackageId>InzSoftwares.AlgerianRibRipValidator</PackageId>
         <PackageVersion>0.0.1</PackageVersion>
         <Authors>Abdellah Addoun</Authors>
-        <!-- TODO Validate company name-->
-        <Company>Hakim213 DZ Softwares</Company>
+        <Company>Inz Softwares</Company>
         <Product>Algerian (DZ) RIB and RIP Validator</Product>
         <RepositoryUrl>https://github.com/itshakim213/rib-validator-dz</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <!-- TODO Validate the copyright label-->
-        <Copyright>Copyright (c) itshakim213 2025</Copyright>
+        <Copyright>Copyright (c) 2025 HaKim</Copyright>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <Description>
             A Lighweight .NET package to valiadate any algerian RIB (Relevé d'Identité Bancaire) or RIP (Relevé d'Identité Postal) code according to
